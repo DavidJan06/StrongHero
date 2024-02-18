@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://deij6b1bit136"]
+
+[ext_resource type="Script" path="res://resources/scripts/tree.gd" id="1_2ab41"]
+[ext_resource type="Texture2D" uid="uid://ckxsrh44mkf4v" path="res://resources/Tiny Swords/Resources/Trees/Tree.png" id="1_guq3v"]
+[ext_resource type="PackedScene" uid="uid://dpfrw7n0l2pug" path="res://resources/scenes/spawner.tscn" id="2_1hbrk"]
+[ext_resource type="PackedScene" uid="uid://bmbevtfxiv0sh" path="res://resources/components/resource_health.tscn" id="4_hqggu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_101w2"]
+atlas = ExtResource("1_guq3v")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmx28"]
+atlas = ExtResource("1_guq3v")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xj1q"]
+atlas = ExtResource("1_guq3v")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay72k"]
+atlas = ExtResource("1_guq3v")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfov7"]
+atlas = ExtResource("1_guq3v")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m48io"]
+atlas = ExtResource("1_guq3v")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cmuu"]
+atlas = ExtResource("1_guq3v")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iwkdl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_101w2")
+}],
+"loop": true,
+"name": &"Cut",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmx28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xj1q")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay72k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfov7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m48io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cmuu")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajuak"]
+
+[node name="Tree" type="StaticBody2D" groups=["Resource"]]
+disable_mode = 1
+collision_layer = 9
+script = ExtResource("1_2ab41")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iwkdl")
+animation = &"Hit"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 62)
+shape = SubResource("RectangleShape2D_ajuak")
+
+[node name="Spawner" parent="." instance=ExtResource("2_1hbrk")]
+
+[node name="Health" parent="." instance=ExtResource("4_hqggu")]
+
+[editable path="Spawner"]

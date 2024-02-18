@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://d1m8phtlxrm4o"]
+
+[ext_resource type="Texture2D" uid="uid://id3ds8ioemqu" path="res://resources/Tiny Swords/Terrain/Ground/Tilemap_Flat.png" id="1_oq5mq"]
+[ext_resource type="Texture2D" uid="uid://c6mi3wau062qy" path="res://resources/Tiny Swords/Terrain/Ground/Tilemap_Elevation.png" id="2_p3pgn"]
+[ext_resource type="Texture2D" uid="uid://cai8jh0j6tudr" path="res://resources/Tiny Swords/Terrain/Ground/Shadows.png" id="3_b7e5h"]
+[ext_resource type="Texture2D" uid="uid://b2irgh53isblx" path="res://resources/Tiny Swords/Terrain/Bridge/Bridge_All.png" id="4_8mb6x"]
+[ext_resource type="Script" path="res://resources/scripts/TileMap.gd" id="5_ntsy0"]
+[ext_resource type="Script" path="res://resources/scripts/Camera2D.gd" id="6_xl4al"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp2vf"]
+texture = ExtResource("1_oq5mq")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+8:2/0 = 0
+8:3/0 = 0
+7:3/0 = 0
+6:3/0 = 0
+5:3/0 = 0
+5:2/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:2/0 = 0
+6:2/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7tqrv"]
+texture = ExtResource("2_p3pgn")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+1:3/0 = 0
+1:4/0 = 0
+1:5/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+2:3/0 = 0
+2:4/0 = 0
+2:5/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+3:4/0 = 0
+3:5/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c420k"]
+texture = ExtResource("3_b7e5h")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vdhsi"]
+texture = ExtResource("4_8mb6x")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:3/0 = 0
+2:3/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6ai5w"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_pp2vf")
+sources/1 = SubResource("TileSetAtlasSource_7tqrv")
+sources/2 = SubResource("TileSetAtlasSource_c420k")
+sources/3 = SubResource("TileSetAtlasSource_vdhsi")
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_6ai5w")
+format = 2
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("5_ntsy0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("6_xl4al")

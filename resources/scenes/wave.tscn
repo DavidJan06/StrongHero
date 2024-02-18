@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://elv0tj28w00a"]
+
+[ext_resource type="Texture2D" uid="uid://ebqqv0mhpysc" path="res://resources/Tiny Swords/Terrain/Water/Foam/Foam.png" id="1_onbhy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcumy"]
+atlas = ExtResource("1_onbhy")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l5ga"]
+atlas = ExtResource("1_onbhy")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_binma"]
+atlas = ExtResource("1_onbhy")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vckgy"]
+atlas = ExtResource("1_onbhy")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6gwp"]
+atlas = ExtResource("1_onbhy")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_300q0"]
+atlas = ExtResource("1_onbhy")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0h8h"]
+atlas = ExtResource("1_onbhy")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7boqa"]
+atlas = ExtResource("1_onbhy")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tpcte"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcumy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l5ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_binma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vckgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6gwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_300q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0h8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7boqa")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Wave_Left",
+"speed": 5.0
+}]
+
+[node name="Wave" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_tpcte")
+animation = &"Wave_Left"
