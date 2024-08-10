@@ -395,7 +395,7 @@ hit_distance = 60
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_22186")
-animation = &"Attack_Upper_Up"
+animation = &"Attack_Downer"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
